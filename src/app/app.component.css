@@ -1,0 +1,46 @@
+.main-content {
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 80%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+
+}
+
+.uploader {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.uploader > h1 {
+  text-align: center;
+}
+.JSON {
+  border: 1px solid black;
+}
+
+.visualize-json-btn {
+  margin-top: 40px;
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  transition-duration: .2s;
+  width: 30%;
+  align-self: center;
+}
+
+.visualize-json-btn:hover {
+  background-color: #374151;
+}
+
