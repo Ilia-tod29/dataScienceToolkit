@@ -1,8 +1,12 @@
 # DataScienceToolkit
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+This project is a FMI project which is for the discipline Web.
 
-## Development server
+## Install dependencies
+
+Run `npm install` in order to install all needed dependencies.
+
+## Run development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
