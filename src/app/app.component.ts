@@ -85,6 +85,8 @@ export class AppComponent {
     this.files = [];
     this.shouldVisualize = false;
     this.jsonIsValid = false;
+    this.showLineChart = false;
+    this.showPieChart = false;
   }
 
   toggleShowPieChart(): void{
