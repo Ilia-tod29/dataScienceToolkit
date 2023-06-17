@@ -1,1 +1,91 @@
+<!--<label for="json-file" class="drop-container">-->
+<!--  <span class="drop-title">Drop files here</span>-->
+<!--  or-->
+<!--</label>-->
+<!--<div class="file-container">-->
+<!--  <input-->
+<!--    id="json-file"-->
+<!--    class="json-input"-->
+<!--    type="file"-->
+<!--    accept="application/json"-->
+<!--    (change)="onFileChanged($event)"-->
+<!--    #fileInput>-->
+<!--</div>-->
+<!--<button (click)="fileInput.click()">Select JSON File</button>-->
+<!--&lt;!&ndash;<div *ngFor="let file of files">&ndash;&gt;-->
+<!--&lt;!&ndash;  <img *ngIf="file" [src]="file.url" width="100px" height="100px">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<button (click)="onUpload()">Upload!</button>-->
+<!--<span *ngIf="fileName">{{fileName}}</span>-->
+
 <router-outlet></router-outlet>
+<div class="main-content">
+  <div class="uploader">
+    <h1>JSON Interpreter</h1>
+    <ngx-dropzone
+      class="drop-zone"
+      (change)="onFileChanged($event)"
+      [accept]="'application/json'">
+      <ngx-dropzone-label>Drop JSON here! <br> or <br> Click here to select JSON!</ngx-dropzone-label>
+      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-preview>
+    </ngx-dropzone>
+    <button class="visualize-json-btn"
+            type="button"
+            (click)="visualizeJson()"
+            *ngIf="!this.shouldVisualize">
+      Visualize JSON
+    </button>
+    <button class="visualize-json-btn"
+            type="button"
+            (click)="clearAllJson()"
+            *ngIf="this.shouldVisualize">
+      Clear
+    </button>
+  </div>
+  <div *ngFor="let text of fileText">
+      <pre class="JSON"
+           *ngIf="text && shouldVisualize">
+        {{text}}
+      </pre>
+  </div>
+
+  <!-- From here -->
+  <div class="button-container">
+    <button   id="toggle-button"
+              class="visualize-pie-chart"
+              type="button"
+              (click)="toggleShowPieChart()"
+              *ngIf="jsonIsValid"
+              [ngClass]="{'green' : !this.showPieChart, 'red': this.showPieChart}">
+        {{pieChartStatus}}
+      </button>
+
+      <button   id="toggle-button"
+                class="visualize-line-chart"
+                type="button"
+                (click)="toggleShowLineChart()"
+                *ngIf="jsonIsValid"
+                [ngClass]="{'green' : !this.showLineChart, 'red': this.showLineChart}">
+          {{lineChartStatus}}
+      </button>
+  </div>
+
+  <div class="charts-container">
+    <div>
+      <section *ngIf="showPieChart" class="pieChartDiagram">
+        <app-pie-chart></app-pie-chart>
+      </section>
+    </div>
+
+    <div>
+      <section *ngIf="showLineChart" class="lineChartDiagram">
+        <app-line-chart></app-line-chart>
+      </section>
+    </div>
+</div>
+
+</div>
+
+

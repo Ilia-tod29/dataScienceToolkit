@@ -10,6 +10,13 @@ export class AppComponent {
   shouldVisualize: boolean = false;
   files: File[] = [];
 
+  showPieChart: boolean = false;
+  pieChartStatus: string = "Show Pie Chart";
+  showLineChart: boolean = false;
+  lineChartStatus: string = "Show Line Chart";
+
+  jsonIsValid: boolean = false;
+
   // Might be removed
   // Everything related to this variable is only for test reasons and display of the json to the user
   fileText: string[] = [];
@@ -26,6 +33,7 @@ export class AppComponent {
 
           if(this.validateJSON(result)) {
             this.fileText.push(JSON.stringify(result, null, 4));
+            this.jsonIsValid = true;
           } else {
             throw new Error("JSON file not in supported format!");
           }
@@ -76,5 +84,21 @@ export class AppComponent {
     this.fileText = [];
     this.files = [];
     this.shouldVisualize = false;
+    this.jsonIsValid = false;
   }
+
+  toggleShowPieChart(): void{
+    if (!this.showLineChart)
+    this.showPieChart = !this.showPieChart;
+
+    this.pieChartStatus = !this.showPieChart ? "Show Pie Chart" : "Hide";
+  }
+
+  toggleShowLineChart(): void {
+    if (!this.showPieChart)
+      this.showLineChart = !this.showLineChart;
+
+    this.lineChartStatus = !this.showLineChart ? "Show Line Chart" : "Hide";
+  }
+
 }
