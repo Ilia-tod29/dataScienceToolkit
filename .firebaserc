@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "datasciencetoolkit-fmi": {
+      "hosting": {
+        "dataScienceToolkit": [
+          "datasciencetoolkit-fmi"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "datasciencetoolkit-fmi"
+  }
+}

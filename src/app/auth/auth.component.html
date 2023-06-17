@@ -1,0 +1,47 @@
+<div class="form-wrapper">
+  <div *ngIf="!isRegistered" class="modal">
+    <h1 class="form-title">Sliding Puzzle Game</h1>
+    <p class="action">Sign in</p>
+    <form (submit)="submitSignIn($event)" class="sign-in" id="form-self" action="#">
+      <div class="input">
+        <input type="email" id="email" class="input-field" name="email" placeholder=" " required [(ngModel)]="signInObj.email"/>
+        <label class="input-label" for="email">Email</label>
+      </div>
+      <div class="input">
+        <input type="password" id="password" class="input-field" name="password" placeholder=" " required [(ngModel)]="signInObj.password"/>
+        <label class="input-label">Password</label>
+      </div>
+      <div class="button-wrapper">
+        <button class="form-submit">Sign in</button>
+      </div>
+      <p id="error" class="error"></p>
+    </form>
+    <div>No account? <a (click)="toggleRegister()" class="switch">Sign up</a></div>
+  </div>
+
+  <div *ngIf="isRegistered" (submit)="submitSignUp($event)" class="modal">
+    <h1 class="form-title">Sliding Puzzle Game</h1>
+    <p class="action">Sign up</p>
+    <form class="sign-up" id="form-self-sign-up" action="#">
+      <div class="input">
+        <input type="email" id="email-sign-up" class="input-field" name="email" placeholder=" " required [(ngModel)]="signUpObj.email"/>
+        <label class="input-label" for="email-sign-up">Email</label>
+      </div>
+      <div id="match-passwords">
+        <div class="input">
+          <input type="password" class="input-field" name="password" placeholder=" " required [(ngModel)]="signUpObj.password"/>
+          <label class="input-label">Password</label>
+        </div>
+        <div class="input">
+          <input type="password" class="input-field" name="password" placeholder=" " required [(ngModel)]="signUpObj.repeatPassword"/>
+          <label class="input-label">Repeat password</label>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button class="form-submit">Sign up</button>
+      </div>
+      <p class="error"></p>
+    </form>
+    <div>Got an account? <a (click)="toggleRegister()" class="switch">Sign in</a></div>
+  </div>
+</div>
