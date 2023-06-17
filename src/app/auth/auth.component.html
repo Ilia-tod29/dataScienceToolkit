@@ -2,7 +2,7 @@
   <div *ngIf="!isRegistered" class="modal">
     <h1 class="form-title">Sliding Puzzle Game</h1>
     <p class="action">Sign in</p>
-    <form (submit)="submitSignIn($event)" class="sign-in" id="form-self" action="#">
+    <form (submit)="submitSignIn()" class="sign-in" id="form-self" action="#">
       <div class="input">
         <input type="email" id="email" class="input-field" name="email" placeholder=" " required [(ngModel)]="signInObj.email"/>
         <label class="input-label" for="email">Email</label>
@@ -14,12 +14,12 @@
       <div class="button-wrapper">
         <button class="form-submit">Sign in</button>
       </div>
-      <p id="error" class="error"></p>
+      <p #errorSignIn class="error"></p>
     </form>
     <div>No account? <a (click)="toggleRegister()" class="switch">Sign up</a></div>
   </div>
 
-  <div *ngIf="isRegistered" (submit)="submitSignUp($event)" class="modal">
+  <div *ngIf="isRegistered" (submit)="submitSignUp()" class="modal">
     <h1 class="form-title">Sliding Puzzle Game</h1>
     <p class="action">Sign up</p>
     <form class="sign-up" id="form-self-sign-up" action="#">
@@ -40,7 +40,7 @@
       <div class="button-wrapper">
         <button class="form-submit">Sign up</button>
       </div>
-      <p class="error"></p>
+      <p #errorSignUp class="error"></p>
     </form>
     <div>Got an account? <a (click)="toggleRegister()" class="switch">Sign in</a></div>
   </div>
