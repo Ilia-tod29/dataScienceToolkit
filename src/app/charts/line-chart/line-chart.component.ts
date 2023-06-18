@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -18,6 +18,7 @@ import {
   styleUrls: ['./line-chart.component.css']
 })
 export class LineChartComponent implements OnInit {
+  @Input() data: JSON | undefined = undefined;
   public chartSeries: ApexAxisChartSeries;
   public chartDetails: ApexChart;
   public chartXAxis: ApexXAxis;
@@ -29,22 +30,22 @@ export class LineChartComponent implements OnInit {
   public chartYAxis: ApexYAxis;
   public chartFill: ApexFill;
 
-  constructor() { 
+  constructor() {
     this.chartDetails = {
       type: 'line',
       height: 350
     };
 
     this.chartLabels = {
-      enabled: true 
+      enabled: true
     };
 
     this.chartGrid = {
       row: {
-        colors: ['#f3f3f3', 'transparent'], 
+        colors: ['#f3f3f3', 'transparent'],
         opacity: 0.5
       },
-      show: true 
+      show: true
     }
 
     this.chartStroke = {
@@ -83,6 +84,7 @@ export class LineChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Todo parse json
   }
 
 }
