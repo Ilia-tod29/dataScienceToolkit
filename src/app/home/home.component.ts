@@ -119,9 +119,9 @@ export class HomeComponent implements OnInit {
   readSelectedRecord(record: StorageRecord | undefined) {
     this.selectedRecord = record;
     this.showAnalyse = true;
+    this.loadAnalytics = false;
     if(this.selectedRecord === undefined) {
       this.showAnalyse = false;
-      this.loadAnalytics = false;
       return;
     }
     this.dataToAnalise = JSON.parse(this.selectedRecord.jsonContent);
