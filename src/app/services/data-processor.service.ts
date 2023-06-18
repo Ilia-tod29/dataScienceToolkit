@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AnalyzedData } from '../types/types'
 const SimpleStatistics = require('simple-statistics')
 
 @Injectable({
@@ -16,9 +17,4 @@ export class DataProcessorService {
       median: median
     }
   }
-}
-
-export interface AnalyzedData {
-  variance: number;
-  median: number;
 }

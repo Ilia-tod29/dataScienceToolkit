@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { from, Observable, of } from "rxjs";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { authParams } from '../types/types'
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +35,4 @@ export class AuthenticationService {
     localStorage.setItem('accessToken', "");
   }
 
-}
-
-type authParams = {
-  email: string;
-  password: string;
 }

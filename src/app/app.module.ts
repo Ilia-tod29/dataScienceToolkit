@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxDropzoneModule } from 'ngx-dropzone';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
@@ -24,7 +23,6 @@ import { environment } from "../environments/environment";
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    NgxDropzoneModule,
     FormsModule,
     ReactiveFormsModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
