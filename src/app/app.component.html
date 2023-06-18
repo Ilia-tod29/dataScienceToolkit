@@ -42,6 +42,9 @@
             *ngIf="this.shouldVisualize">
       Clear
     </button>
+    <app-analyzer [data]="uploadedData"
+                  *ngIf="this.shouldVisualize">
+    </app-analyzer>
   </div>
   <div *ngFor="let text of fileText">
       <pre class="JSON"

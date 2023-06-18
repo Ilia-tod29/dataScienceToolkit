@@ -1,20 +1,10 @@
 {
-  "_id": "645be57fbd6c9f1ae500588c",
-  "index": 0,
-  "guid": "cdf1544f-e962-40b5-aa62-fc76dfcc8c8e",
-  "isActive": false,
-  "balance": "$1,386.15",
-  "picture": "http://placehold.it/32x32",
-  "age": 32,
-  "eyeColor": "blue",
-  "name": "Poole Ramirez",
-  "gender": "male",
-  "company": "KYAGORO",
-  "email": "pooleramirez@kyagoro.com",
-  "phone": "+1 (924) 513-2860",
-  "address": "839 Java Street, Maplewood, West Virginia, 7874",
-  "about": "Nisi occaecat irure excepteur dolore labore deserunt eu occaecat culpa excepteur amet aute excepteur. Nostrud in incididunt labore qui amet. Qui enim pariatur proident nostrud et cupidatat anim magna est aliquip adipisicing. Do voluptate adipisicing incididunt eu aliqua et consequat sunt ex laboris duis excepteur elit consectetur. Id anim ipsum esse duis nisi proident velit magna.\r\n",
-  "registered": "2023-03-12T01:09:32 -02:00",
-  "latitude": -10.977303,
-  "longitude": -132.876945
+  "apple": 378,
+  "meta": 305,
+  "google": 198,
+  "amazon": 343,
+  "netflix": 96,
+  "uber": 234,
+  "twitter": 241, 
+  "tesla": 89
 }
