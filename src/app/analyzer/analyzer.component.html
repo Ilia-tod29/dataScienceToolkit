@@ -1,8 +1,5 @@
 <div>
-    <button (click)="analyzeData()">
-        Analyze
-    </button>
-    <div *ngFor="let analysis of analyzedData">
+    <div *ngFor="let analysis of analysedData">
         <pre class="JSON">
           Variance: {{analysis.variance}}
           Median: {{analysis.median}}

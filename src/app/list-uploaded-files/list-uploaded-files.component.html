@@ -1,0 +1,12 @@
+<div class="uploaded-files-wrapper">
+  <h1>Uploaded JOSN files:</h1>
+  <div class="uploaded-files">
+    <p *ngFor="let record of uploadedFiles"
+       (click)="selectRecord(record)"
+       [ngClass]="{ 'selected': record === selectedFile }"
+       class="file">
+      {{record.fileName}}
+    </p>
+  </div>
+  <button (click)="deleteSelectedFile()" class="delete-btn">Delete selected file</button>
+</div>

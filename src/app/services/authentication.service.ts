@@ -7,19 +7,13 @@ import { authParams } from '../types/types'
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private currentUser: string = "";
-
   constructor(private auth: AngularFireAuth ) { }
 
   validate(response: Object) {
     // @ts-ignore
-    this.currentUser = response['user']['_delegate']['email'];
+    localStorage.setItem('currentUser', response['user']['_delegate']['email']);
     // @ts-ignore
-    localStorage.setItem('accessToken', response['user']['_delegate']['accessToken'])
-  }
-
-  get email(): string {
-    return this.currentUser;
+    localStorage.setItem('accessToken', response['user']['_delegate']['accessToken']);
   }
 
   signIn(params: authParams): Observable<any> {
@@ -31,7 +25,7 @@ export class AuthenticationService {
   }
 
   signOut() {
-    this.currentUser = "";
+    localStorage.setItem('currentUser', "");
     localStorage.setItem('accessToken', "");
   }
 
