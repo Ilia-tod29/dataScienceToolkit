@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LineChartComponent } from '../charts/line-chart/line-chart.component';
 import { PieChartComponent } from '../charts/pie-chart/pie-chart.component';
 import { NgApexchartsModule } from "ng-apexcharts";
-// import { AnalyzerComponent } from '../analyzer/analyzer.component';
+import { AnalyzerComponent } from '../analyzer/analyzer.component';
 
 const routes: Routes = [
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
     HomeComponent,
     LineChartComponent,
     PieChartComponent,
-    // AnalyzerComponent
+    AnalyzerComponent
   ],
   imports: [
     CommonModule,
