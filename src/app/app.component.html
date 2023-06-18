@@ -17,35 +17,41 @@
 <!--&lt;!&ndash;</div>&ndash;&gt;-->
 <!--<button (click)="onUpload()">Upload!</button>-->
 <!--<span *ngIf="fileName">{{fileName}}</span>-->
-<router-outlet></router-outlet>
-<div class="main-content">
-  <div class="uploader">
-    <h1>JSON Interpreter</h1>
-    <ngx-dropzone
-      class="drop-zone"
-      (change)="onFileChanged($event)"
-      [accept]="'application/json'">
-      <ngx-dropzone-label>Drop JSON here! <br> or <br> Click here to select JSON!</ngx-dropzone-label>
-      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-      </ngx-dropzone-preview>
-    </ngx-dropzone>
-    <button class="visualize-json-btn"
-            type="button"
-            (click)="visualizeJson()"
-            *ngIf="!this.shouldVisualize">
-      Visualize JSON
-    </button>
-    <button class="visualize-json-btn"
-            type="button"
-            (click)="clearAllJson()"
-            *ngIf="this.shouldVisualize">
-      Clear
-    </button>
-    <app-analyzer [data]="uploadedData"
-                  *ngIf="this.shouldVisualize">
-    </app-analyzer>
-  </div>
+
+<!-- ------------------------Simeon's change-------------------------------- -->
+<!--<router-outlet></router-outlet>-->
+<!--<div class="main-content">-->
+<!--  <div class="uploader">-->
+<!--    <h1>JSON Interpreter</h1>-->
+<!--    <ngx-dropzone-->
+<!--      class="drop-zone"-->
+<!--      (change)="onFileChanged($event)"-->
+<!--      [accept]="'application/json'">-->
+<!--      <ngx-dropzone-label>Drop JSON here! <br> or <br> Click here to select JSON!</ngx-dropzone-label>-->
+<!--      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">-->
+<!--        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>-->
+<!--      </ngx-dropzone-preview>-->
+<!--    </ngx-dropzone>-->
+<!--    <button class="visualize-json-btn"-->
+<!--            type="button"-->
+<!--            (click)="visualizeJson()"-->
+<!--            *ngIf="!this.shouldVisualize">-->
+<!--      Visualize JSON-->
+<!--    </button>-->
+<!--    <button class="visualize-json-btn"-->
+<!--            type="button"-->
+<!--            (click)="clearAllJson()"-->
+<!--            *ngIf="this.shouldVisualize">-->
+<!--      Clear-->
+<!--    </button>-->
+<!--    <app-analyzer [data]="uploadedData"-->
+<!--                  *ngIf="this.shouldVisualize">-->
+<!--    </app-analyzer>-->
+<!--  </div>-->
+
+
+<!-- ------------------------Simeon's change-------------------------------- -->
+
 <!--  <div *ngFor="let text of fileText">-->
 <!--      <pre class="JSON"-->
 <!--           *ngIf="text && shouldVisualize">-->
