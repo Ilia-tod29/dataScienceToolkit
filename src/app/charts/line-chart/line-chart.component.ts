@@ -68,23 +68,32 @@ export class LineChartComponent implements OnInit {
     this.chartFill = {
       type: 'solid'
     };
-
-    // This should be get from the server
-    this.chartSeries = [
-        {
-          name: 'Series 1',
-          data: [40, 55, 28, 55]
-        }
-    ];
-
-    // This should be get from the server
-    this.chartXAxis = {
-      categories: ["Apple", "Microsoft", "Facebok", "Google"]
-    };
   }
 
   ngOnInit(): void {
-    // Todo parse json
+    let keys: string[] = [];
+    let values: number[] = [];
+
+    if (this.data !== undefined) {
+      const jsonData = this.data as Record<string, any>;
+
+      Object.keys(jsonData).forEach((key: string) => {
+        const value = jsonData[key];
+        keys.push(key);
+        values.push(value);
+      });
+
+      this.chartXAxis = {
+        categories: keys
+      }
+
+      this.chartSeries = [
+        {
+          name: 'Series 1',
+          data: values
+        }
+      ];
+    }
   }
 
 }

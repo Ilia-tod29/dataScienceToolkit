@@ -125,6 +125,9 @@ export class HomeComponent implements OnInit {
       return;
     }
     this.dataToAnalise = JSON.parse(this.selectedRecord.jsonContent);
+
+    this.showPieChart = false;
+    this.showLineChart = false;
   }
 
   analiseData() {

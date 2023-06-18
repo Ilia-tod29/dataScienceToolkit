@@ -22,7 +22,7 @@ export class AnalyzerComponent implements OnInit {
     //   let values = Object.values(dataSet)
     //   this.analyzedData.push(this.dataProcessor.analyzeData(values));
     // })
-    let values = Object.values(this.data)
+    let values = Object.values(this.data);
     this.analysedData.push(this.dataProcessor.analyzeData(values));
     console.log(this.analysedData);
   }
