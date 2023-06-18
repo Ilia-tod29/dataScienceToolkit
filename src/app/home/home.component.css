@@ -23,6 +23,9 @@
 .JSON {
   border: 1px solid black;
 }
+.file-names {
+  align-self: center;
+}
 
 .visualize-json-btn {
   margin-top: 40px;

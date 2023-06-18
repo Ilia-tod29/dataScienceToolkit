@@ -8,20 +8,22 @@ import { AnalyzedData } from '../types/types';
   styleUrls: ['./analyzer.component.css']
 })
 export class AnalyzerComponent implements OnInit {
-  @Input() data: JSON[]
-  analyzedData: AnalyzedData[]
+  @Input() data: JSON | undefined = undefined;
+  analysedData: AnalyzedData[]
   constructor(private dataProcessor: DataProcessorService) {
   }
 
   ngOnInit(): void {
-  }
-
-  analyzeData() {
-    this.analyzedData = [];
-    this.data.forEach( dataSet => {
-      let values = Object.values(dataSet)
-      this.analyzedData.push(this.dataProcessor.analyzeData(values));
-    })
-    console.log(this.analyzedData);
+    if(this.data === undefined) {
+      return;
+    }
+    this.analysedData = [];
+    // this.data.forEach( dataSet => {
+    //   let values = Object.values(dataSet)
+    //   this.analyzedData.push(this.dataProcessor.analyzeData(values));
+    // })
+    let values = Object.values(this.data)
+    this.analysedData.push(this.dataProcessor.analyzeData(values));
+    console.log(this.analysedData);
   }
 }

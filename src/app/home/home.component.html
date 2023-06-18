@@ -10,52 +10,67 @@
       <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
       </ngx-dropzone-preview>
     </ngx-dropzone>
+    <p *ngIf="selectedData.length > 0" class="file-names">
+      Selected files:
+      <span *ngFor="let fileName of selectedData">
+        {{fileName.fileName}},&nbsp;
+      </span>
+    </p>
     <button class="visualize-json-btn"
             type="button"
-            (click)="visualizeJson()"
-            *ngIf="!this.shouldVisualize">
-      Visualize JSON
+            (click)="uploadJson()"
+            *ngIf="!shouldUpload">
+      Upload
     </button>
     <button class="visualize-json-btn"
             type="button"
             (click)="clearAllJson()"
-            *ngIf="this.shouldVisualize">
+            *ngIf="shouldUpload">
       Clear
     </button>
-    <app-analyzer [data]="uploadedData"
-                  *ngIf="this.shouldVisualize">
+    <app-list-uploaded-files (selectedRecord)="readSelectedRecord($event)"></app-list-uploaded-files>
+    <button class="visualize-json-btn"
+            type="button"
+            (click)="analiseData()"
+            *ngIf="showAnalyse">
+      Analyse
+    </button>
+    <app-analyzer [data]="dataToAnalise"
+                  *ngIf="loadAnalytics">
     </app-analyzer>
   </div>
 
-  <div class="button-container">
-    <button id="toggle-button"
-            class="visualize-pie-chart"
-            type="button"
-            (click)="toggleShowPieChart()"
-            [ngClass]="{'green' : !this.showPieChart, 'red': this.showPieChart}">
-      {{pieChartStatus}}
-    </button>
+  <div *ngIf="loadAnalytics">
+    <div class="button-container">
+      <button id="toggle-button"
+              class="visualize-pie-chart"
+              type="button"
+              (click)="toggleShowPieChart()"
+              [ngClass]="{'green' : !this.showPieChart, 'red': this.showPieChart}">
+        {{pieChartStatus}}
+      </button>
 
-    <button id="toggle-button"
-            class="visualize-line-chart"
-            type="button"
-            (click)="toggleShowLineChart()"
-            [ngClass]="{'green' : !this.showLineChart, 'red': this.showLineChart}">
-      {{lineChartStatus}}
-    </button>
-  </div>
-
-  <div class="charts-container">
-    <div>
-      <section *ngIf="showPieChart" class="pieChartDiagram">
-        <app-pie-chart></app-pie-chart>
-      </section>
+      <button id="toggle-button"
+              class="visualize-line-chart"
+              type="button"
+              (click)="toggleShowLineChart()"
+              [ngClass]="{'green' : !this.showLineChart, 'red': this.showLineChart}">
+        {{lineChartStatus}}
+      </button>
     </div>
 
-    <div>
-      <section *ngIf="showLineChart" class="lineChartDiagram">
-        <app-line-chart></app-line-chart>
-      </section>
+    <div class="charts-container">
+      <div>
+        <section *ngIf="showPieChart" class="pieChartDiagram">
+          <app-pie-chart></app-pie-chart>
+        </section>
+      </div>
+
+      <div>
+        <section *ngIf="showLineChart" class="lineChartDiagram">
+          <app-line-chart></app-line-chart>
+        </section>
+      </div>
     </div>
   </div>
 </div>
