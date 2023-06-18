@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { median } from 'simple-statistics';
 const SimpleStatistics = require('simple-statistics')
 
 @Injectable({
