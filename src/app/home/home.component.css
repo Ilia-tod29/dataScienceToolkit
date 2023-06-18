@@ -1,0 +1,53 @@
+.visualize-line-chart
+{
+  margin-top: 40px;
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  transition-duration: .2s;
+  width: 30%;
+}
+
+.visualize-pie-chart {
+  margin-top: 40px;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  transition-duration: .2s;
+  width: 30%;
+}
+
+.button-container
+{
+  justify-content: space-around;
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.charts-container
+{
+  justify-content: space-around;
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}

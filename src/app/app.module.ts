@@ -13,17 +13,18 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
-import { HomeComponent } from './home/home.component';
-import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+import { PieChartComponent } from '../app/charts/pie-chart/pie-chart.component';
 import { NgApexchartsModule } from "ng-apexcharts";
-import { LineChartComponent } from './charts/line-chart/line-chart.component';
+import { LineChartComponent } from '../app/charts/line-chart/line-chart.component';
 import { environment } from "../environments/environment";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PieChartComponent,
     LineChartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

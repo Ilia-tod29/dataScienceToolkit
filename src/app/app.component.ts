@@ -10,11 +10,6 @@ export class AppComponent {
   shouldVisualize: boolean = false;
   files: File[] = [];
 
-  showPieChart: boolean = false;
-  pieChartStatus: string = "Show Pie Chart";
-  showLineChart: boolean = false;
-  lineChartStatus: string = "Show Line Chart";
-
   jsonIsValid: boolean = false;
 
   // Might be removed
@@ -86,19 +81,4 @@ export class AppComponent {
     this.shouldVisualize = false;
     this.jsonIsValid = false;
   }
-
-  toggleShowPieChart(): void{
-    if (!this.showLineChart)
-    this.showPieChart = !this.showPieChart;
-
-    this.pieChartStatus = !this.showPieChart ? "Show Pie Chart" : "Hide";
-  }
-
-  toggleShowLineChart(): void {
-    if (!this.showPieChart)
-      this.showLineChart = !this.showLineChart;
-
-    this.lineChartStatus = !this.showLineChart ? "Show Line Chart" : "Hide";
-  }
-
 }
