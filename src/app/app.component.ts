@@ -9,6 +9,9 @@ export class AppComponent {
   title = 'dataScienceToolkit';
   shouldVisualize: boolean = false;
   files: File[] = [];
+
+  jsonIsValid: boolean = false;
+
   uploadedData: JSON[] = []
   // Might be removed
   // Everything related to this variable is only for test reasons and display of the json to the user
@@ -26,6 +29,7 @@ export class AppComponent {
 
           if(this.validateJSON(result)) {
             this.fileText.push(JSON.stringify(result, null, 4));
+            this.jsonIsValid = true;
             this.uploadedData.push(result);
           } else {
             throw new Error("JSON file not in supported format!");
@@ -39,6 +43,7 @@ export class AppComponent {
       }
       this.files.push(currentFile);
     }
+
     console.log(this.files)
 
   }
@@ -79,5 +84,6 @@ export class AppComponent {
     this.files = [];
     this.uploadedData = [];
     this.shouldVisualize = false;
+    this.jsonIsValid = false;
   }
 }
