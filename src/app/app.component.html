@@ -51,40 +51,10 @@
       </pre>
   </div>
 
-  <!-- From here -->
-  <div class="button-container">
-    <button   id="toggle-button"
-              class="visualize-pie-chart"
-              type="button"
-              (click)="toggleShowPieChart()"
-              *ngIf="jsonIsValid"
-              [ngClass]="{'green' : !this.showPieChart, 'red': this.showPieChart}">
-        {{pieChartStatus}}
-      </button>
-
-      <button   id="toggle-button"
-                class="visualize-line-chart"
-                type="button"
-                (click)="toggleShowLineChart()"
-                *ngIf="jsonIsValid"
-                [ngClass]="{'green' : !this.showLineChart, 'red': this.showLineChart}">
-          {{lineChartStatus}}
-      </button>
-  </div>
-
-  <div class="charts-container">
-    <div>
-      <section *ngIf="showPieChart" class="pieChartDiagram">
-        <app-pie-chart></app-pie-chart>
-      </section>
-    </div>
-
-    <div>
-      <section *ngIf="showLineChart" class="lineChartDiagram">
-        <app-line-chart></app-line-chart>
-      </section>
-    </div>
-</div>
+  <!-- Add home visualization -->
+  <section *ngIf="this.jsonIsValid" class="homeVisualize">
+    <app-home></app-home>
+  </section>
 
 </div>
 
