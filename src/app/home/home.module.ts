@@ -6,6 +6,8 @@ import { LineChartComponent } from '../charts/line-chart/line-chart.component';
 import { PieChartComponent } from '../charts/pie-chart/pie-chart.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { AnalyzerComponent } from '../analyzer/analyzer.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+
 
 const routes: Routes = [
   {
@@ -25,6 +27,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     NgApexchartsModule,
+    NgxDropzoneModule
   ]
 })
 export class HomeModule { }
