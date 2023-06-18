@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageRecord, ViewJson } from "../types/types";
 import { AuthenticationService } from "../services/authentication.service";
 import { DatabaseService } from "../services/database.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { DatabaseService } from "../services/database.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  currentUser: string | null;
   shouldUpload: boolean = false;
   loadAnalytics: boolean = false;
   showAnalyse: boolean = false;
@@ -26,10 +28,12 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private databaseService: DatabaseService
+    private databaseService: DatabaseService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.currentUser = localStorage.getItem('currentUser')
   }
 
   toggleShowPieChart(): void{
@@ -76,9 +80,6 @@ export class HomeComponent implements OnInit {
         console.log(error);
       }
     }
-
-    console.log(this.files);
-    console.log(this.selectedData);
   }
 
   onRemove(event: any) {
@@ -89,11 +90,7 @@ export class HomeComponent implements OnInit {
 
   onUpload() {
     for (const record of this.selectedData) {
-      console.log(record);
-      this.databaseService.createRecord(record).then(response => {
-        console.log("record created");
-        console.log(response);
-      })
+      this.databaseService.createRecord(record)
     }
   }
 
@@ -119,18 +116,24 @@ export class HomeComponent implements OnInit {
     return true;
   }
 
-
-  readSelectedRecord(record: StorageRecord) {
+  readSelectedRecord(record: StorageRecord | undefined) {
     this.selectedRecord = record;
-    this.dataToAnalise = JSON.parse(this.selectedRecord.jsonContent);
     this.showAnalyse = true;
-    if(this.selectedData === undefined) {
+    if(this.selectedRecord === undefined) {
       this.showAnalyse = false;
+      this.loadAnalytics = false;
+      return;
     }
+    this.dataToAnalise = JSON.parse(this.selectedRecord.jsonContent);
   }
 
   analiseData() {
     this.loadAnalytics = true;
+  }
+
+  signOut() {
+    this.authenticationService.signOut();
+    this.router.navigate(['auth'])
   }
 
   clearAllJson() {

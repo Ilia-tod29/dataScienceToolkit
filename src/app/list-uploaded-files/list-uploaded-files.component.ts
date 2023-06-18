@@ -25,7 +25,6 @@ export class ListUploadedFilesComponent implements OnInit {
       }).filter((currentRecord) => {
         return currentRecord.user === localStorage.getItem('currentUser');
       })
-      console.log(this.uploadedFiles)
     })
   }
 
