@@ -33,7 +33,7 @@ export class DatabaseService {
         })
         .then(
           response => {
-            console.log(response);
+            alert("Successfully uploaded!")
           },
           error => reject(error))
     })
