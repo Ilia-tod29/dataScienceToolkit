@@ -14,10 +14,13 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { environment } from "../environments/environment";
+import { AnalyzerComponent } from './analyzer/analyzer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    AnalyzerComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ export class AppComponent {
 
   jsonIsValid: boolean = false;
 
+  uploadedData: JSON[] = []
   // Might be removed
   // Everything related to this variable is only for test reasons and display of the json to the user
   fileText: string[] = [];
@@ -29,6 +30,7 @@ export class AppComponent {
           if(this.validateJSON(result)) {
             this.fileText.push(JSON.stringify(result, null, 4));
             this.jsonIsValid = true;
+            this.uploadedData.push(result);
           } else {
             throw new Error("JSON file not in supported format!");
           }
@@ -58,7 +60,9 @@ export class AppComponent {
   }
 
   visualizeJson() {
-    this.shouldVisualize = true;
+    if (this.files.length > 0) {
+      this.shouldVisualize = true;
+    }
   }
 
   private validateJSON(json: any): boolean {
@@ -78,6 +82,7 @@ export class AppComponent {
   clearAllJson() {
     this.fileText = [];
     this.files = [];
+    this.uploadedData = [];
     this.shouldVisualize = false;
     this.jsonIsValid = false;
   }
