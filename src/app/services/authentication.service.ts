@@ -24,7 +24,7 @@ export class AuthenticationService {
     return from(this.auth.createUserWithEmailAndPassword(params.email, params.password));
   }
 
-  signOut() {
+  signOut(): void {
     localStorage.setItem('currentUser', "");
     localStorage.setItem('accessToken', "");
   }

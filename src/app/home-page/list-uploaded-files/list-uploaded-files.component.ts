@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { StorageRecord } from "../types/types";
-import { DatabaseService } from "../services/database.service";
+import { StorageRecord } from "../../types/types";
+import { DatabaseService } from "../../services/database.service";
 
 @Component({
   selector: 'app-list-uploaded-files',
@@ -28,12 +28,12 @@ export class ListUploadedFilesComponent implements OnInit {
     })
   }
 
-  selectRecord(record: StorageRecord) {
+  selectRecord(record: StorageRecord): void {
     this.selectedFile = record;
     this.selectedRecord.emit(record);
   }
 
-  deleteSelectedFile() {
+  deleteSelectedFile(): void {
     if (this.selectedFile != undefined && confirm("Are you sure to delete" + this.selectedFile.fileName)) {
       this.databaseService.delete(this.selectedFile);
       this.selectedFile = undefined;

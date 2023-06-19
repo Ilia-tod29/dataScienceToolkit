@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataProcessorService } from '../services/data-processor.service';
-import { AnalyzedData } from '../types/types';
+import { DataProcessorService } from '../../services/data-processor.service';
+import { AnalyzedData } from '../../types/types';
 
 @Component({
   selector: 'app-analyzer',
@@ -18,12 +18,7 @@ export class AnalyzerComponent implements OnInit {
       return;
     }
     this.analysedData = [];
-    // this.data.forEach( dataSet => {
-    //   let values = Object.values(dataSet)
-    //   this.analyzedData.push(this.dataProcessor.analyzeData(values));
-    // })
     let values = Object.values(this.data);
     this.analysedData.push(this.dataProcessor.analyzeData(values));
-    console.log(this.analysedData);
   }
 }

@@ -29,12 +29,11 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleRegister() {
+  toggleRegister(): void {
     this.isRegistered = !this.isRegistered;
   }
 
-  submitSignUp() {
-    console.log("sign up");
+  submitSignUp(): void {
     if (this.signUpObj.password !== this.signUpObj.repeatPassword) {
       this.errorSignUpEl!.nativeElement.textContent = "Passwords do not match";
       return;
@@ -60,8 +59,7 @@ export class AuthComponent implements OnInit {
     });
   }
 
-  submitSignIn() {
-    console.log("sign in");
+  submitSignIn(): void {
     this.isLoading = true;
 
     this.authenticationService.signIn({
