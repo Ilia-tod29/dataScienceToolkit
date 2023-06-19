@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LineChartComponent } from '../charts/line-chart/line-chart.component';
 import { PieChartComponent } from '../charts/pie-chart/pie-chart.component';
+import { HistogramComponent } from '../charts/histogram/histogram.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { AnalyzerComponent } from '../analyzer/analyzer.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
@@ -21,6 +22,7 @@ const routes: Routes = [
     HomeComponent,
     LineChartComponent,
     PieChartComponent,
+    HistogramComponent,
     AnalyzerComponent,
     ListUploadedFilesComponent
   ],
