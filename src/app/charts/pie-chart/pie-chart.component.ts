@@ -9,10 +9,10 @@ import { ApexChart, ApexDataLabels, ApexNonAxisChartSeries, ApexTitleSubtitle } 
 export class PieChartComponent implements OnInit {
 
   // This should be get from the server
-  chartSeries: ApexNonAxisChartSeries = [40, 55, 28, 55]; 
-  
+  chartSeries: ApexNonAxisChartSeries = [40, 55, 28, 55];
+
   // This should be get from the server
-  chartLabels: any = ["Apple", "Microsoft", "Facebok", "Google"]; 
+  chartLabels: any = ["Apple", "Microsoft", "Facebok", "Google"];
 
   chartDetails: ApexChart = {
     type: 'pie',
@@ -30,7 +30,7 @@ export class PieChartComponent implements OnInit {
     enabled: false
   };
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

@@ -14,7 +14,6 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { environment } from "../environments/environment";
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +29,10 @@ import { environment } from "../environments/environment";
     // provideFirestore(() => getFirestore())
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    // NgApexchartsModule,
   ],
   providers: [],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

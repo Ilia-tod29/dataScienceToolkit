@@ -47,18 +47,21 @@
     </app-analyzer>
   </div>
 
+<!--  <div class="histogram">-->
+<!--    <app-histogram>-->
+<!--    </app-histogram>-->
+<!--  </div>-->
+
   <div *ngIf="loadAnalytics">
     <div class="button-container">
-      <button id="toggle-button"
-              class="visualize-pie-chart"
+      <button class="visualize-pie-chart"
               type="button"
               (click)="toggleShowPieChart()"
               [ngClass]="{'green' : !this.showPieChart, 'red': this.showPieChart}">
         {{pieChartStatus}}
       </button>
 
-      <button id="toggle-button"
-              class="visualize-line-chart"
+      <button class="visualize-line-chart"
               type="button"
               (click)="toggleShowLineChart()"
               [ngClass]="{'green' : !this.showLineChart, 'red': this.showLineChart}">
