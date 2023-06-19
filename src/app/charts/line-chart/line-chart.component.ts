@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -18,6 +18,7 @@ import {
   styleUrls: ['./line-chart.component.css']
 })
 export class LineChartComponent implements OnInit {
+  @Input() data: JSON | undefined = undefined;
   public chartSeries: ApexAxisChartSeries;
   public chartDetails: ApexChart;
   public chartXAxis: ApexXAxis;
@@ -29,22 +30,22 @@ export class LineChartComponent implements OnInit {
   public chartYAxis: ApexYAxis;
   public chartFill: ApexFill;
 
-  constructor() { 
+  constructor() {
     this.chartDetails = {
       type: 'line',
       height: 350
     };
 
     this.chartLabels = {
-      enabled: true 
+      enabled: true
     };
 
     this.chartGrid = {
       row: {
-        colors: ['#f3f3f3', 'transparent'], 
+        colors: ['#f3f3f3', 'transparent'],
         opacity: 0.5
       },
-      show: true 
+      show: true
     }
 
     this.chartStroke = {
@@ -67,22 +68,32 @@ export class LineChartComponent implements OnInit {
     this.chartFill = {
       type: 'solid'
     };
-
-    // This should be get from the server
-    this.chartSeries = [
-        {
-          name: 'Series 1',
-          data: [40, 55, 28, 55]
-        }
-    ];
-
-    // This should be get from the server
-    this.chartXAxis = {
-      categories: ["Apple", "Microsoft", "Facebok", "Google"]
-    };
   }
 
   ngOnInit(): void {
+    let keys: string[] = [];
+    let values: number[] = [];
+
+    if (this.data !== undefined) {
+      const jsonData = this.data as Record<string, any>;
+
+      Object.keys(jsonData).forEach((key: string) => {
+        const value = jsonData[key];
+        keys.push(key);
+        values.push(value);
+      });
+
+      this.chartXAxis = {
+        categories: keys
+      }
+
+      this.chartSeries = [
+        {
+          name: 'Series 1',
+          data: values
+        }
+      ];
+    }
   }
 
 }

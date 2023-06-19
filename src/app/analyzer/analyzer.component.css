@@ -13,3 +13,37 @@ button {
     width: 30%;
     align-self: center;
 }
+
+.text-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.fancy-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fancy-table th {
+  font-family: 'Times New Roman', sans-serif;
+  font-size: 25px;
+  background-color: #52595D;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #fff;
+}
+
+.fancy-table td {
+  fond-size: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.fancy-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.fancy-table tr:hover {
+  background-color: #e6e6e6;
+}

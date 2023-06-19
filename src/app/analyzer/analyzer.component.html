@@ -1,8 +1,22 @@
-<div>
-    <div *ngFor="let analysis of analysedData">
-        <pre class="JSON">
-          Variance: {{analysis.variance}}
-          Median: {{analysis.median}}
-        </pre>
-    </div>
+<div class="text-container">
+  <div *ngFor="let analysis of analysedData">
+    <pre class="JSON">
+      <table class="fancy-table">
+        <thead>
+        <tr>
+          <th>Variance</th>
+          <th>Median</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{analysis.variance}}</td>
+          <td>{{analysis.median}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </pre>
+  </div>
 </div>
+
+

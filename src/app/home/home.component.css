@@ -118,16 +118,15 @@
 
 .charts-container
 {
-  justify-content: space-around;
+  justify-content: center;
+  margin-left: 40px;
   display: flex;
   gap: 20px;
   margin-top: 40px;
 }
 
-.green {
-  background-color: green;
+.red {
+  background-color: #c51830;
 }
 
-.red {
-  background-color: red;
-}
+

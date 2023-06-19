@@ -40,7 +40,7 @@
             type="button"
             (click)="analiseData()"
             *ngIf="showAnalyse">
-      Analyse
+      Analyze
     </button>
     <app-analyzer [data]="dataToAnalise"
                   *ngIf="loadAnalytics">
@@ -49,19 +49,17 @@
 
   <div *ngIf="loadAnalytics">
     <div class="button-container">
-      <button id="toggle-button"
-              class="visualize-pie-chart"
+      <button class="visualize-json-btn"
               type="button"
               (click)="toggleShowPieChart()"
-              [ngClass]="{'green' : !this.showPieChart, 'red': this.showPieChart}">
+              [ngClass]="{'red': this.showPieChart}">
         {{pieChartStatus}}
       </button>
 
-      <button id="toggle-button"
-              class="visualize-line-chart"
+      <button class="visualize-json-btn"
               type="button"
               (click)="toggleShowLineChart()"
-              [ngClass]="{'green' : !this.showLineChart, 'red': this.showLineChart}">
+              [ngClass]="{'red': this.showLineChart}">
         {{lineChartStatus}}
       </button>
     </div>
@@ -69,13 +67,15 @@
     <div class="charts-container">
       <div>
         <section *ngIf="showPieChart" class="pieChartDiagram">
-          <app-pie-chart></app-pie-chart>
+          <app-pie-chart [data]="dataToAnalise">
+          </app-pie-chart>
         </section>
       </div>
 
       <div>
         <section *ngIf="showLineChart" class="lineChartDiagram">
-          <app-line-chart></app-line-chart>
+          <app-line-chart [data]="dataToAnalise">
+          </app-line-chart>
         </section>
       </div>
     </div>

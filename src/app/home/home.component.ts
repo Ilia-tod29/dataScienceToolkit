@@ -40,14 +40,14 @@ export class HomeComponent implements OnInit {
     if (!this.showLineChart)
     this.showPieChart = !this.showPieChart;
 
-    this.pieChartStatus = !this.showPieChart ? "Show Pie Chart" : "Hide";
+    this.pieChartStatus = !this.showPieChart ? "Show Pie Chart" : "Hide Pie Chart";
   }
 
   toggleShowLineChart(): void {
     if (!this.showPieChart)
       this.showLineChart = !this.showLineChart;
 
-    this.lineChartStatus = !this.showLineChart ? "Show Line Chart" : "Hide";
+    this.lineChartStatus = !this.showLineChart ? "Show Line Chart" : "Hide Line Chart";
   }
 
   onFileChanged(fileInput: any) {
@@ -125,9 +125,13 @@ export class HomeComponent implements OnInit {
       return;
     }
     this.dataToAnalise = JSON.parse(this.selectedRecord.jsonContent);
+
+    this.showPieChart = false;
+    this.showLineChart = false;
   }
 
   analiseData() {
+    console.log("Analyse");
     this.loadAnalytics = true;
   }
 
