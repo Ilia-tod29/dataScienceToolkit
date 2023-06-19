@@ -131,6 +131,7 @@ export class HomeComponent implements OnInit {
   }
 
   analiseData() {
+    console.log("Analyse");
     this.loadAnalytics = true;
   }
 
