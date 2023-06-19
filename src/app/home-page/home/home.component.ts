@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageRecord, ViewJson } from "../types/types";
-import { AuthenticationService } from "../services/authentication.service";
-import { DatabaseService } from "../services/database.service";
+import { StorageRecord } from "../../types/types";
+import { AuthenticationService } from "../../services/authentication.service";
+import { DatabaseService } from "../../services/database.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     this.lineChartStatus = !this.showLineChart ? "Show Line Chart" : "Hide Line Chart";
   }
 
-  onFileChanged(fileInput: any) {
+  onFileChanged(fileInput: any): void {
     this.shouldUpload = false;
     const fileReader = new FileReader();
 
@@ -70,9 +70,11 @@ export class HomeComponent implements OnInit {
             this.selectedData.push(data);
             this.files.push(currentFile);
           } else {
+            alert("ERROR: JSON file not in supported format!");
             throw new Error("JSON file not in supported format!");
           }
         } else {
+          alert("JSON file is null");
           throw new Error("JSON file is null");
         }
       }
@@ -82,19 +84,19 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  onRemove(event: any) {
+  onRemove(event: any): void {
     const indexOfEventToRemove = this.files.indexOf(event);
     this.files.splice(indexOfEventToRemove, 1);
     this.selectedData.splice(indexOfEventToRemove, 1);
   }
 
-  onUpload() {
+  onUpload(): void {
     for (const record of this.selectedData) {
       this.databaseService.createRecord(record)
     }
   }
 
-  uploadJson() {
+  uploadJson(): void {
     if (this.files.length > 0) {
       this.shouldUpload = true;
       this.onUpload();
@@ -116,7 +118,7 @@ export class HomeComponent implements OnInit {
     return true;
   }
 
-  readSelectedRecord(record: StorageRecord | undefined) {
+  readSelectedRecord(record: StorageRecord | undefined): void {
     this.selectedRecord = record;
     this.showAnalyse = true;
     this.loadAnalytics = false;
