@@ -47,6 +47,11 @@
     </app-analyzer>
   </div>
 
+  <div class="histogram"
+      *ngIf="loadAnalytics">
+    <app-histogram [data]="dataToAnalise"></app-histogram>
+  </div>
+
   <div *ngIf="loadAnalytics">
     <div class="button-container">
       <button class="visualize-json-btn"

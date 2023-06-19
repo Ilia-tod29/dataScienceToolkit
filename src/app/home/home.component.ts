@@ -131,7 +131,6 @@ export class HomeComponent implements OnInit {
   }
 
   analiseData() {
-    console.log("Analyse");
     this.loadAnalytics = true;
   }
 
@@ -145,5 +144,6 @@ export class HomeComponent implements OnInit {
     this.selectedData = [];
     this.shouldUpload = false;
     this.jsonIsValid = false;
+    this.loadAnalytics = false;
   }
 }
