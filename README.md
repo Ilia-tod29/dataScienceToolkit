@@ -6,26 +6,32 @@ This project is a FMI project which is for the discipline Web.
 
 Run `npm install` in order to install all needed dependencies.
 
-## Run development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Run development server
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Create account
 
-## Further help
+Firstly you will be redirected to /auth and you will have to sign-in in your account or sign-up if you
+don't have one.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Use the functionalities
+
+- After successful sign-in/up you will be redirected to /home.
+- There you can upload a JSON file by clicking on or dropping file in "Drop JSON here! or Click here to select JSON!" box.
+- After that you will have to click the "Upload" button.
+- The uploaded file/files will be displayed in Uploaded "JSON files" box.
+- From there you can select the file you wish to analyse or delete.
+  - If you want to analyse a file:
+    - Click on the "Analyse" button.
+    - You will be presented with variance, median and histogram of your data.
+    - You will have the opportunity to build pie OR line chart from your data.
+  - If you want to delete a file:
+    - Click on "Delete selected file" button.
+    - Confirm your choice.
